@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 5,
-    "iteration": 1719262822518,
+    "id": 3,
+    "iteration": 1719325470064,
     "links": [],
     "panels": [
       {
@@ -34,7 +34,7 @@
         "gridPos": {
           "h": 8,
           "w": 12,
-          "x": 12,
+          "x": 0,
           "y": 0
         },
         "hiddenSeries": false,
@@ -116,7 +116,6 @@
         }
       },
       {
-        "collapsed": false,
         "datasource": null,
         "gridPos": {
           "h": 1,
@@ -124,9 +123,8 @@
           "x": 0,
           "y": 8
         },
-        "id": 9,
-        "panels": [],
-        "title": "Logins",
+        "id": 17,
+        "title": "Data Transfer",
         "type": "row"
       },
       {
@@ -142,13 +140,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 7,
+          "h": 8,
+          "w": 8,
           "x": 0,
           "y": 9
         },
         "hiddenSeries": false,
-        "id": 11,
+        "id": 19,
         "legend": {
           "avg": false,
           "current": false,
@@ -176,39 +174,23 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_download_size{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "interval": "",
-            "legendFormat": "login attempts ({{job}})",
+            "legendFormat": "downloads ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_upload_size{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "hide": false,
             "interval": "",
-            "legendFormat": "login Ok ({{job}})",
+            "legendFormat": "uploads ({{job}})",
             "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "login Fail ({{job}})",
-            "refId": "C"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_no_auth_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "login No Auth ({{job}})",
-            "refId": "D"
           }
         ],
         "thresholds": [],
         "timeRegions": [],
-        "title": "Logins",
+        "title": "Data Rates",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -224,8 +206,8 @@
         },
         "yaxes": [
           {
-            "$$hashKey": "object:1231",
-            "format": "short",
+            "$$hashKey": "object:101",
+            "format": "Bps",
             "label": null,
             "logBase": 1,
             "max": null,
@@ -233,7 +215,7 @@
             "show": true
           },
           {
-            "$$hashKey": "object:1232",
+            "$$hashKey": "object:102",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -260,13 +242,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 4,
+          "h": 8,
+          "w": 8,
           "x": 8,
           "y": 9
         },
         "hiddenSeries": false,
-        "id": 12,
+        "id": 20,
         "legend": {
           "avg": false,
           "current": false,
@@ -294,33 +276,25 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_downloads_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "interval": "",
-            "legendFormat": "attempts ({{job}})",
+            "legendFormat": "downloads ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_uploads_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "hide": false,
             "interval": "",
-            "legendFormat": "Ok ({{job}})",
+            "legendFormat": "uploads ({{job}})",
             "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Fail ({{job}})",
-            "refId": "C"
           }
         ],
         "thresholds": [],
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "Password Logins",
+        "title": "Data Transfer Sessions",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -336,7 +310,7 @@
         },
         "yaxes": [
           {
-            "$$hashKey": "object:1231",
+            "$$hashKey": "object:101",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -345,7 +319,7 @@
             "show": true
           },
           {
-            "$$hashKey": "object:1232",
+            "$$hashKey": "object:102",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -372,125 +346,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 4,
-          "x": 12,
-          "y": 9
-        },
-        "hiddenSeries": false,
-        "id": 13,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": false,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.5.31",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "interval": "",
-            "legendFormat": "attempts ({{job}})",
-            "refId": "A"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Ok ({{job}})",
-            "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Fail ({{job}})",
-            "refId": "C"
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "Public Key Logins",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:1231",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:1232",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
-      },
-      {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {},
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 9,
-          "w": 4,
+          "h": 8,
+          "w": 8,
           "x": 16,
           "y": 9
         },
         "hiddenSeries": false,
-        "id": 14,
+        "id": 21,
         "legend": {
           "avg": false,
           "current": false,
@@ -518,33 +380,25 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "interval": "",
-            "legendFormat": "attempts ({{job}})",
+            "legendFormat": "downloads ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
             "hide": false,
             "interval": "",
-            "legendFormat": "Ok ({{job}})",
+            "legendFormat": "uploads ({{job}})",
             "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Fail ({{job}})",
-            "refId": "C"
           }
         ],
         "thresholds": [],
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "TLS & Passwd",
+        "title": "Errors",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -560,7 +414,7 @@
         },
         "yaxes": [
           {
-            "$$hashKey": "object:1231",
+            "$$hashKey": "object:101",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -569,7 +423,7 @@
             "show": true
           },
           {
-            "$$hashKey": "object:1232",
+            "$$hashKey": "object:102",
             "format": "short",
             "label": null,
             "logBase": 1,
@@ -584,116 +438,587 @@
         }
       },
       {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
+        "collapsed": true,
         "datasource": null,
-        "fieldConfig": {
-          "defaults": {},
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 4,
-          "x": 20,
-          "y": 9
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 17
         },
-        "hiddenSeries": false,
-        "id": 15,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": false,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.5.31",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
+        "id": 9,
+        "panels": [
           {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "interval": "",
-            "legendFormat": "attempts ({{job}})",
-            "refId": "A"
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 7,
+              "x": 0,
+              "y": 9
+            },
+            "hiddenSeries": false,
+            "id": 11,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": false,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.5.31",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "interval": "",
+                "legendFormat": "login attempts ({{job}})",
+                "refId": "A"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "login Ok ({{job}})",
+                "refId": "B"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "login Fail ({{job}})",
+                "refId": "C"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_no_auth_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "login No Auth ({{job}})",
+                "refId": "D"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Logins",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "$$hashKey": "object:1231",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": "0",
+                "show": true
+              },
+              {
+                "$$hashKey": "object:1232",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           },
           {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Ok ({{job}})",
-            "refId": "B"
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 4,
+              "x": 8,
+              "y": 9
+            },
+            "hiddenSeries": false,
+            "id": 12,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": false,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.5.31",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_password_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "interval": "",
+                "legendFormat": "attempts ({{job}})",
+                "refId": "A"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_password_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Ok ({{job}})",
+                "refId": "B"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_password_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Fail ({{job}})",
+                "refId": "C"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Password Logins",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "$$hashKey": "object:1231",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": "0",
+                "show": true
+              },
+              {
+                "$$hashKey": "object:1232",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           },
           {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Fail ({{job}})",
-            "refId": "C"
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 4,
+              "x": 12,
+              "y": 9
+            },
+            "hiddenSeries": false,
+            "id": 13,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": false,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.5.31",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_public_key_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "interval": "",
+                "legendFormat": "attempts ({{job}})",
+                "refId": "A"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_public_key_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Ok ({{job}})",
+                "refId": "B"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_public_key_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Fail ({{job}})",
+                "refId": "C"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Public Key Logins",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "$$hashKey": "object:1231",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": "0",
+                "show": true
+              },
+              {
+                "$$hashKey": "object:1232",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 4,
+              "x": 16,
+              "y": 9
+            },
+            "hiddenSeries": false,
+            "id": 14,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": false,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.5.31",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "interval": "",
+                "legendFormat": "attempts ({{job}})",
+                "refId": "A"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Ok ({{job}})",
+                "refId": "B"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Fail ({{job}})",
+                "refId": "C"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "TLS & Passwd",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "$$hashKey": "object:1231",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": "0",
+                "show": true
+              },
+              {
+                "$$hashKey": "object:1232",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 4,
+              "x": 20,
+              "y": 9
+            },
+            "hiddenSeries": false,
+            "id": 15,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": false,
+              "total": false,
+              "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.5.31",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "interval": "",
+                "legendFormat": "attempts ({{job}})",
+                "refId": "A"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Ok ({{job}})",
+                "refId": "B"
+              },
+              {
+                "exemplar": true,
+                "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+                "hide": false,
+                "interval": "",
+                "legendFormat": "Fail ({{job}})",
+                "refId": "C"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "TLS",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "$$hashKey": "object:1231",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": "0",
+                "show": true
+              },
+              {
+                "$$hashKey": "object:1232",
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           }
         ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "TLS",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:1231",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:1232",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
+        "title": "Logins",
+        "type": "row"
       },
       {
         "collapsed": false,
@@ -900,7 +1225,7 @@
             "label": null,
             "logBase": 1,
             "max": null,
-            "min": null,
+            "min": "0",
             "show": true
           },
           {
@@ -948,7 +1273,7 @@
         {
           "allValue": ".*",
           "current": {
-            "selected": true,
+            "selected": false,
             "text": "All",
             "value": "$__all"
           },
@@ -979,7 +1304,7 @@
         {
           "allValue": ".*",
           "current": {
-            "selected": true,
+            "selected": false,
             "text": "All",
             "value": "$__all"
           },
@@ -1010,12 +1335,12 @@
       ]
     },
     "time": {
-      "from": "now-3h",
+      "from": "now-24h",
       "to": "now"
     },
     "timepicker": {},
     "timezone": "",
     "title": "SFTPGo",
     "uid": "vILqUNwIz",
-    "version": 9
+    "version": 1
   }
