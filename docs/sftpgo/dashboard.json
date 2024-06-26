@@ -15,10 +15,141 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 3,
-    "iteration": 1719329384659,
+    "iteration": 1719407346632,
     "links": [],
     "panels": [
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        },
+        "id": 34,
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.31",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_sftpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_sftpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_httpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_httpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) ( rate(sftpgo_http_client_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_http_server_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "H"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Data Transfer Errors",
+        "transformations": [
+          {
+            "id": "merge",
+            "options": {}
+          },
+          {
+            "id": "calculateField",
+            "options": {
+              "mode": "reduceRow",
+              "reduce": {
+                "include": [],
+                "reducer": "sum"
+              },
+              "replaceFields": true
+            }
+          }
+        ],
+        "type": "gauge"
+      },
       {
         "aliasColors": {},
         "bars": false,
@@ -34,7 +165,7 @@
         "gridPos": {
           "h": 8,
           "w": 12,
-          "x": 0,
+          "x": 6,
           "y": 0
         },
         "hiddenSeries": false,
@@ -114,6 +245,138 @@
           "align": false,
           "alignLevel": null
         }
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "id": 33,
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "7.5.31",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_sftpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_sftpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_httpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_httpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) ( rate(sftpgo_http_client_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_http_server_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "",
+            "refId": "H"
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Data Transfer Errors",
+        "transformations": [
+          {
+            "id": "merge",
+            "options": {}
+          },
+          {
+            "id": "calculateField",
+            "options": {
+              "mode": "reduceRow",
+              "reduce": {
+                "include": [],
+                "reducer": "sum"
+              },
+              "replaceFields": true
+            }
+          }
+        ],
+        "type": "gauge"
       },
       {
         "collapsed": false,
@@ -1343,129 +1606,9 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 7,
+          "h": 7,
+          "w": 8,
           "x": 0,
-          "y": 45
-        },
-        "hiddenSeries": false,
-        "id": 11,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": false,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.5.31",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "interval": "",
-            "legendFormat": "login attempts ({{job}})",
-            "refId": "A"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "login Ok ({{job}})",
-            "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "login Fail ({{job}})",
-            "refId": "C"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_no_auth_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "login No Auth ({{job}})",
-            "refId": "D"
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "Logins",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:1231",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:1232",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
-      },
-      {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {},
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 9,
-          "w": 4,
-          "x": 8,
           "y": 45
         },
         "hiddenSeries": false,
@@ -1497,33 +1640,81 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
             "interval": "",
-            "legendFormat": "attempts ({{job}})",
+            "legendFormat": "All ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
+            "expr": "sum by (job) (rate(sftpgo_idp_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "interval": "",
-            "legendFormat": "Ok ({{job}})",
+            "legendFormat": "idp ({{job}})",
             "refId": "B"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_password_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_key_and_keyboard_int_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "hide": false,
             "interval": "",
-            "legendFormat": "Fail ({{job}})",
+            "legendFormat": "public key + keyboard interactive ({{job}})",
             "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_key_and_password_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key + password ({{job}})",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_keyboard_interactive_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "keyboard interactive ({{job}})",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_password_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Password ({{job}})",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_public_key_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key ({{job}})",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate+password ({{job}})",
+            "refId": "H"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate ({{job}})",
+            "refId": "I"
           }
         ],
         "thresholds": [],
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "Password Logins",
+        "title": "Total Logins",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -1575,13 +1766,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 4,
-          "x": 12,
+          "h": 7,
+          "w": 8,
+          "x": 8,
           "y": 45
         },
         "hiddenSeries": false,
-        "id": 13,
+        "id": 35,
         "legend": {
           "avg": false,
           "current": false,
@@ -1609,33 +1800,81 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
             "interval": "",
-            "legendFormat": "attempts ({{job}})",
+            "legendFormat": "All ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
+            "expr": "sum by (job) (rate(sftpgo_idp_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "interval": "",
-            "legendFormat": "Ok ({{job}})",
+            "legendFormat": "idp ({{job}})",
             "refId": "B"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_public_key_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_key_and_keyboard_int_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "hide": false,
             "interval": "",
-            "legendFormat": "Fail ({{job}})",
+            "legendFormat": "public key + keyboard interactive ({{job}})",
             "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_key_and_password_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key + password ({{job}})",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_keyboard_interactive_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "keyboard interactive ({{job}})",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_password_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Password ({{job}})",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_public_key_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key ({{job}})",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate+password ({{job}})",
+            "refId": "H"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate ({{job}})",
+            "refId": "I"
           }
         ],
         "thresholds": [],
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "Public Key Logins",
+        "title": "Login Success",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -1687,13 +1926,13 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 9,
-          "w": 4,
+          "h": 7,
+          "w": 8,
           "x": 16,
           "y": 45
         },
         "hiddenSeries": false,
-        "id": 14,
+        "id": 36,
         "legend": {
           "avg": false,
           "current": false,
@@ -1721,145 +1960,89 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
             "interval": "",
-            "legendFormat": "attempts ({{job}})",
+            "legendFormat": "All ({{job}})",
             "refId": "A"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
+            "expr": "sum by (job) (rate(sftpgo_idp_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "interval": "",
-            "legendFormat": "Ok ({{job}})",
+            "legendFormat": "idp ({{job}})",
             "refId": "B"
           },
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
+            "expr": "sum by (job) (rate(sftpgo_key_and_keyboard_int_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "hide": false,
             "interval": "",
-            "legendFormat": "Fail ({{job}})",
+            "legendFormat": "public key + keyboard interactive ({{job}})",
             "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_key_and_password_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key + password ({{job}})",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_keyboard_interactive_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "keyboard interactive ({{job}})",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_password_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Password ({{job}})",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_public_key_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "public key ({{job}})",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_and_pwd_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate+password ({{job}})",
+            "refId": "H"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TLS certificate ({{job}})",
+            "refId": "I"
+          },
+          {
+            "exemplar": true,
+            "expr": "sum by (job) (rate(sftpgo_no_auth_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Client timeout ({{job}})",
+            "refId": "J"
           }
         ],
         "thresholds": [],
         "timeFrom": null,
         "timeRegions": [],
         "timeShift": null,
-        "title": "TLS & Passwd",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:1231",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:1232",
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
-      },
-      {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {},
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 9,
-          "w": 4,
-          "x": 20,
-          "y": 45
-        },
-        "hiddenSeries": false,
-        "id": 15,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": false,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.5.31",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_attempts_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "interval": "",
-            "legendFormat": "attempts ({{job}})",
-            "refId": "A"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ok_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Ok ({{job}})",
-            "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_tls_cert_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "Fail ({{job}})",
-            "refId": "C"
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "TLS",
+        "title": "Login Failure",
         "tooltip": {
           "shared": true,
           "sort": 0,
@@ -1928,7 +2111,7 @@
         {
           "allValue": ".*",
           "current": {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
@@ -1990,12 +2173,12 @@
       ]
     },
     "time": {
-      "from": "now-3h",
+      "from": "now-12h",
       "to": "now"
     },
     "timepicker": {},
     "timezone": "",
     "title": "SFTPGo",
     "uid": "vILqUNwIz",
-    "version": 5
+    "version": 1
   }
