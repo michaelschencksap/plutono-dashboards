@@ -293,72 +293,16 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
+            "expr": "sum by (job) (rate(sftpgo_login_ko_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
             "hide": false,
             "interval": "",
             "legendFormat": "",
             "refId": "A"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "B"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_sftpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "C"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_sftpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "D"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_httpfs_download_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "E"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_httpfs_upload_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "F"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) ( rate(sftpgo_http_client_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))\n",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "G"
-          },
-          {
-            "exemplar": true,
-            "expr": "sum by (job) (rate(sftpgo_http_server_errors_total{namespace=~\"$namespace\",job=~\"$job\"}[1m]))",
-            "hide": false,
-            "interval": "",
-            "legendFormat": "",
-            "refId": "H"
           }
         ],
         "timeFrom": null,
         "timeShift": null,
-        "title": "Data Transfer Errors",
+        "title": "Authentication Errors",
         "transformations": [
           {
             "id": "merge",
